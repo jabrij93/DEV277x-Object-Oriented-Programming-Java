@@ -1,0 +1,55 @@
+public abstract class Employee {
+    public String name;
+    public double baseSalary;
+    public int employeeID;
+    public String getManager;
+    public Employee manager;
+    private static int countID;
+    public double bonusBudget;
+    public Accountant accountantSupport;
+    public int headcount = 0;
+
+    public Employee(String name, double baseSalary) {
+        //Should construct a new employee object and take in two parameters,
+        // one for the name of the user and one for their base salary
+        this.name = name;
+        this.baseSalary = baseSalary;
+        countID++;
+        this.employeeID = countID;
+    }
+
+    public double getBaseSalary() {
+        return this.baseSalary;
+    }
+
+    public String getName () {
+        return this.name;
+    }
+
+    public int getEmployeeID() {
+        return this.employeeID;
+    }
+
+    public Employee getManager() {
+        return manager;
+    }
+
+    public void setManager(Employee manager) {
+        this.manager = manager;
+    }
+
+
+    public boolean equals(Employee other) {
+        return this.getEmployeeID() == other.getEmployeeID();
+    }
+
+    public Accountant getAccountantSupport(){
+        return accountantSupport;
+    }
+
+    public String toString() {
+        return getEmployeeID()+" "+getName();
+    }
+
+    public abstract String employeeStatus();
+}
